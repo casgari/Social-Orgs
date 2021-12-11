@@ -27,3 +27,4 @@ except:
     print(f"Could not read any data from the URL you provided.\nReading from {sample_url} instead.")
     url = convert_gsheets_url(sample_url)
     df = pd.read_csv(url)
+df.head(10)
