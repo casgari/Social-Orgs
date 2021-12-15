@@ -66,3 +66,35 @@ theme_hodp = go.layout.Template(
                 }
     )
 )
+
+# Most well known figure
+
+#initialize figure
+fig = go.Figure()
+
+
+clublist = np.array(df['Which final club do you believe is the most well-known?'].value_counts())
+clubs = np.array(df['Which final club do you believe is the most well-known?'])
+
+#club = np.unique(df['Which final club do you believe is the most well-known?'])
+
+print(clublist)
+print(clubs)
+#print(club)
+X=(clubs)
+Y=(clublist)
+
+#plot figure
+fig.add_trace(go.Bar(
+    x=X,
+    y=Y,
+    marker_color=primary_colors[0]
+    
+))
+
+fig.update_layout(
+    title="Most Well Known Clubs",
+    template=theme_hodp
+)
+
+fig.show()
