@@ -67,6 +67,39 @@ theme_hodp = go.layout.Template(
     )
 )
 
+fig = go.Figure()
+
+yes = df['Are you in a final club?'].value_counts()['Yes'] 
+no = df['Are you in a final club?'].value_counts()['No'] 
+
+labels = ["Yes", "No"]
+values = [yes/(yes+no) * 100, no/(yes+no) * 100]
+colors = ['#C63F3F', '#F4B436', '#83BFCC']
+
+# initialize the figure
+fig = go.Figure()
+
+# add a trace
+fig.add_trace(go.Pie(
+   values=values, 
+   labels=labels,
+   textinfo='label',
+   marker_colors=colors,
+   hoverinfo='label+percent'
+))
+
+# update the layout
+fig.update_layout(
+   title="Are You in a Final Club?", 
+   xaxis={'title':{'text':'X Axis Label'}}, 
+   yaxis={'title':{'text':'Y Axis Label'}}, 
+   legend={'title':{'text':'Legend Title'}},
+   template=theme_hodp
+)
+
+# display the figure
+fig.show()
+
 # Most well known figure
 
 #initialize figure
