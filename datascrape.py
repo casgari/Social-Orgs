@@ -105,22 +105,17 @@ fig.show()
 #initialize figure
 fig = go.Figure()
 
+# creating the dataset
+data = {'Porcellian':8, 'Phoenix':3, 'Spee':4,
+        'Owl':2, 'Fox':1, 'Delphic':1, 'Sigma Chi': 1, 'Fly': 2}
+clubs = list(data.keys())
+values = list(data.values())
+  
+fig = go.Figure()
 
-clublist = np.array(df['Which final club do you believe is the most well-known?'].value_counts())
-clubs = np.array(df['Which final club do you believe is the most well-known?'])
-
-#club = np.unique(df['Which final club do you believe is the most well-known?'])
-
-print(clublist)
-print(clubs)
-#print(club)
-X=(clubs)
-Y=(clublist)
-
-#plot figure
 fig.add_trace(go.Bar(
-    x=X,
-    y=Y,
+    x=clubs,
+    y=values,
     marker_color=primary_colors[0]
     
 ))
