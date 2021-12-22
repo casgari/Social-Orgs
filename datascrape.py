@@ -255,3 +255,38 @@ fig.update_layout(
 )
 
 fig.show()
+
+###Punches across race pie chart
+
+#initialize figure
+fig = go.Figure()
+
+data = {'White':9, 'Black':1, 'Asian':3, 'Hispanic':2}
+
+labels = ["Yes", "No"]
+values = [yes/34 * 100, (34-yes)/34* 100]
+colors = ['#C63F3F', '#F4B436', '#83BFCC']
+
+# initialize the figure
+fig = go.Figure()
+
+# add a trace
+fig.add_trace(go.Pie(
+   values=list(data.values()), 
+   labels=list(data.keys()),
+   textinfo='label',
+   marker_colors=colors,
+   hoverinfo='label+percent'
+))
+
+# update the layout
+fig.update_layout(
+   title="Race of Final Club Punches", 
+   xaxis={'title':{'text':'X Axis Label'}}, 
+   yaxis={'title':{'text':'Y Axis Label'}}, 
+   legend={'title':{'text':'Race'}},
+   template=theme_hodp
+)
+
+# display the figure
+fig.show()
