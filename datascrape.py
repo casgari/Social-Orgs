@@ -138,7 +138,44 @@ fig.update_layout(
 # display the figure
 fig.show()
 
-# Most well known figure
+### Pie Chart 3
+
+import plotly.graph_objects as go
+
+fig = go.Figure()
+
+yes = df['Have you attended a final club party or event in the last:'].value_counts()['Month?'] +  df['Have you attended a final club party or event in the last:'].value_counts()['Year?'] + df['Have you attended a final club party or event in the last:'].value_counts()['Week?']
+ 
+
+labels = ["Yes", "No"]
+values = [yes/34 * 100, (34-yes)/34* 100]
+colors = ['#C63F3F', '#F4B436', '#83BFCC']
+
+# initialize the figure
+fig = go.Figure()
+
+# add a trace
+fig.add_trace(go.Pie(
+   values=values, 
+   labels=labels,
+   textinfo='label',
+   marker_colors=colors,
+   hoverinfo='label+percent'
+))
+
+# update the layout
+fig.update_layout(
+   title="Have You Attended a Final Club Party or Event in the Last Year?", 
+   xaxis={'title':{'text':'X Axis Label'}}, 
+   yaxis={'title':{'text':'Y Axis Label'}}, 
+   legend={'title':{'text':'Legend Title'}},
+   template=theme_hodp
+)
+
+# display the figure
+fig.show()
+
+### Most well known figure bar chart
 
 #initialize figure
 fig = go.Figure()
