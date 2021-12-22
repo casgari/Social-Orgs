@@ -202,3 +202,29 @@ fig.update_layout(
 
 fig.show()
 
+### Worst reputation bar graph
+
+#initialize figure
+fig = go.Figure()
+
+# creating the dataset
+data = {'Porcellian':3, 'Phoenix':5, 'Spee':3,
+        'Owl':1, 'Fox':2, 'Delphic':1, 'Bee': 1, 'Fly': 1,
+        'Fleur-de-lis':1}
+clubs = list(data.keys())
+values = list(data.values())
+  
+
+fig.add_trace(go.Bar(
+    x=clubs,
+    y=values,
+    marker_color=primary_colors[0]
+    
+))
+
+fig.update_layout(
+    title="Clubs with the Worst Reputation",
+    template=theme_hodp
+)
+
+fig.show()
