@@ -290,3 +290,38 @@ fig.update_layout(
 
 # display the figure
 fig.show()
+
+###Punches across academic area pie chart
+
+#initialize figure
+fig = go.Figure()
+
+data = {'Social Sciences':7, 'Sciences':5, 'Arts and Humanities':1}
+
+labels = ["Yes", "No"]
+values = [yes/34 * 100, (34-yes)/34* 100]
+colors = ['#C63F3F', '#F4B436', '#83BFCC']
+
+# initialize the figure
+fig = go.Figure()
+
+# add a trace
+fig.add_trace(go.Pie(
+   values=list(data.values()), 
+   labels=list(data.keys()),
+   textinfo='label',
+   marker_colors=colors,
+   hoverinfo='label+percent'
+))
+
+# update the layout
+fig.update_layout(
+   title="Academic Areas of Final Club Punches", 
+   xaxis={'title':{'text':'X Axis Label'}}, 
+   yaxis={'title':{'text':'Y Axis Label'}}, 
+   legend={'title':{'text':'Race'}},
+   template=theme_hodp
+)
+
+# display the figure
+fig.show()
