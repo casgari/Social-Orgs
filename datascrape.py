@@ -228,3 +228,30 @@ fig.update_layout(
 )
 
 fig.show()
+
+### Best reputation bar graph
+
+#initialize figure
+fig = go.Figure()
+
+# creating the dataset
+data = {'Porcellian':4,
+        'Owl':1, 'Fox':4, 'Delphic':1, 'Bee': 2, 'Fly': 1,
+        'La Vie':1}
+clubs = list(data.keys())
+values = list(data.values())
+  
+
+fig.add_trace(go.Bar(
+    x=clubs,
+    y=values,
+    marker_color=primary_colors[0]
+    
+))
+
+fig.update_layout(
+    title="Clubs with the Best Reputation",
+    template=theme_hodp
+)
+
+fig.show()
